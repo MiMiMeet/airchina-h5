@@ -30,615 +30,132 @@
   }
 
   .phone-frame {
-    width: 390px;
-    height: 844px;
-    max-height: 100vh;
+    width: 390px; height: 844px; max-height: 100vh;
     background: var(--warm-white);
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
+    border-radius: 24px; overflow: hidden; position: relative;
     box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 2px #1a1a1a;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
   }
 
   .slides {
-    flex: 1;
-    overflow-y: scroll;
+    flex: 1; overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; scroll-behavior: smooth;
   }
   .slides::-webkit-scrollbar { display: none; }
 
   .slide {
-    min-height: 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 48px 28px;
-    position: relative;
-    overflow: hidden;
+    min-height: 100%; scroll-snap-align: start; scroll-snap-stop: always;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 48px 28px; position: relative; overflow: hidden;
   }
 
-  /* ── Dot Nav ── */
-  .dot-nav {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 10;
-  }
-  .dot-nav .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(0,0,0,.2);
-    transition: all .3s;
-  }
-  .dot-nav .dot.active {
-    background: var(--red);
-    height: 20px;
-    border-radius: 3px;
-  }
+  /* Dot Nav */
+  .dot-nav { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 10; }
+  .dot-nav .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,.2); transition: all .3s; }
+  .dot-nav .dot.active { background: var(--red); height: 20px; border-radius: 3px; }
 
-  /* ── Typography ── */
-  .section-tag {
-    font-size: 13px;
-    letter-spacing: 6px;
-    color: var(--red);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
-  .slide-title {
-    font-family: "Noto Serif SC", "思源宋体", "STSong", serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--blue);
-    text-align: center;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
+  /* Typography */
+  .section-tag { font-size: 13px; letter-spacing: 6px; color: var(--red); margin-bottom: 12px; }
+  .slide-title { font-family: "Noto Serif SC","思源宋体","STSong",serif; font-size: 24px; font-weight: 700; color: var(--blue); text-align: center; margin-bottom: 20px; line-height: 1.4; }
   .slide-title.light { color: var(--white); }
-  .slide-body {
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--text);
-    text-align: justify;
-  }
+  .slide-body { font-size: 14px; line-height: 1.9; color: var(--text); text-align: justify; }
   .slide-body.center { text-align: center; }
+  .slide-body.light { color: rgba(255,255,255,.9); }
 
-  /* ── ============ SCREEN 1: COVER ============ ── */
+  /* ──────────────────────── SCREEN 1: COVER ──────────────────────── */
   .slide-cover {
-    background: linear-gradient(180deg, #050d1a 0%, #0a1f3d 25%, #0d2847 50%, #1a4a7a 80%, #255fa0 100%);
+    background: linear-gradient(180deg, #030a14 0%, #081a30 20%, #0d2847 45%, #153f6e 70%, #1d5290 100%);
     text-align: center;
   }
-  .slide-cover::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 55% 18%, rgba(255,255,255,.1) 0%, transparent 55%),
-      radial-gradient(ellipse at 45% 65%, rgba(196,30,42,.15) 0%, transparent 45%);
-  }
-  /* Stars */
-  .stars {
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,.7), transparent),
-      radial-gradient(1px 1px at 70% 12%, rgba(255,255,255,.5), transparent),
-      radial-gradient(1px 1px at 35% 40%, rgba(255,255,255,.4), transparent),
-      radial-gradient(1.5px 1.5px at 80% 50%, rgba(255,255,255,.6), transparent),
-      radial-gradient(1px 1px at 20% 65%, rgba(255,255,255,.3), transparent),
-      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.5), transparent),
-      radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,.4), transparent),
-      radial-gradient(1.5px 1.5px at 50% 8%, rgba(255,255,255,.7), transparent),
-      radial-gradient(1px 1px at 42% 58%, rgba(255,255,255,.35), transparent);
-  }
-  /* Clouds */
-  .clouds {
-    position: absolute; bottom: 0; left: -20%; right: -20%;
-    height: 40%;
-    background:
-      radial-gradient(ellipse at 25% 75%, rgba(255,255,255,.07) 0%, transparent 50%),
-      radial-gradient(ellipse at 60% 80%, rgba(255,255,255,.09) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 70%, rgba(255,255,255,.05) 0%, transparent 45%);
-    border-radius: 50% 60% 0 0 / 50% 40% 0 0;
-  }
-  /* Phoenix silhouette in clouds */
-  .phoenix-silhouette {
-    position: absolute;
-    top: 12%; left: 50%; transform: translateX(-50%);
-    width: 120px; height: 100px;
-    opacity: .12;
-    z-index: 1;
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(196,30,42,.8) 0%, transparent 60%),
-      radial-gradient(ellipse at 35% 55%, rgba(196,30,42,.5) 0%, transparent 50%),
-      radial-gradient(ellipse at 65% 55%, rgba(196,30,42,.5) 0%, transparent 50%);
-    filter: blur(20px);
-    animation: phoenixGlow 4s ease-in-out infinite;
-  }
-  @keyframes phoenixGlow {
-    0%, 100% { opacity: .08; transform: translateX(-50%) scale(1); }
-    50% { opacity: .18; transform: translateX(-50%) scale(1.1); }
-  }
-  /* Flight path */
-  .flight-path {
-    position: absolute;
-    top: 32%; left: 5%; right: 5%;
-    height: 1.5px;
-    background: linear-gradient(90deg, transparent, rgba(200,151,74,.4) 20%, rgba(200,151,74,.7) 50%, rgba(200,151,74,.4) 80%, transparent);
-    z-index: 2;
-  }
-  .flight-path::after {
-    content: '✈';
-    position: absolute;
-    right: 16%; top: -15px;
-    font-size: 22px;
-    filter: drop-shadow(0 0 8px rgba(200,151,74,.7));
-    animation: flyPath 3s ease-in-out infinite;
-  }
-  @keyframes flyPath {
-    0%, 100% { transform: translate(0,0) rotate(-12deg); }
-    50% { transform: translate(-12px, 5px) rotate(-8deg); }
-  }
+  .cover-svg-layer { position: absolute; inset: 0; z-index: 1; }
   .cover-main-title {
-    font-family: "Noto Serif SC", "思源宋体", "STSong", serif;
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--white);
-    letter-spacing: 5px;
-    position: relative;
-    z-index: 3;
+    font-family: "Noto Serif SC","思源宋体","STSong",serif; font-size: 36px; font-weight: 900;
+    color: var(--white); letter-spacing: 5px; position: relative; z-index: 3;
     text-shadow: 0 2px 24px rgba(0,0,0,.5);
   }
-  .cover-sub-title {
-    font-size: 14px;
-    color: var(--gold);
-    margin-top: 18px;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 3;
-    text-shadow: 0 1px 8px rgba(0,0,0,.4);
-  }
-  .cover-flag-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 24px;
-    padding: 6px 16px;
-    border: 1px solid rgba(196,30,42,.5);
-    border-radius: 20px;
-    font-size: 11px;
-    color: rgba(255,255,255,.8);
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 3;
-  }
-  .cover-flag-badge .flag { font-size: 16px; }
-  .cover-swipe {
-    position: absolute;
-    bottom: 52px; left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,.6);
-    font-size: 12px;
-    letter-spacing: 3px;
-    z-index: 3;
-    animation: floatUpDown 2s ease-in-out infinite;
-  }
-  .cover-swipe::before {
-    content: '';
-    display: block;
-    width: 1px; height: 24px;
-    background: rgba(255,255,255,.3);
-    margin: 0 auto 10px;
-  }
-  @keyframes floatUpDown {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: .4; }
-    50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
-  }
+  .cover-sub-title { font-size: 14px; color: var(--gold); margin-top: 18px; letter-spacing: 3px; position: relative; z-index: 3; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+  .cover-flag-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 24px; padding: 6px 16px; border: 1px solid rgba(196,30,42,.5); border-radius: 20px; font-size: 11px; color: rgba(255,255,255,.8); letter-spacing: 2px; position: relative; z-index: 3; }
+  .cover-swipe { position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.6); font-size: 12px; letter-spacing: 3px; z-index: 3; animation: floatUpDown 2s ease-in-out infinite; }
+  .cover-swipe::before { content: ''; display: block; width: 1px; height: 24px; background: rgba(255,255,255,.3); margin: 0 auto 10px; }
+  @keyframes floatUpDown { 0%,100% { transform: translateX(-50%) translateY(0); opacity: .4; } 50% { transform: translateX(-50%) translateY(8px); opacity: 1; } }
 
-  /* ── ============ SCREEN 2: TWO LANDS + BRAND INTRO ============ ── */
-  .slide-lands { background: var(--warm-white); padding-top: 56px; }
-  .brand-intro {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .brand-intro .phoenix-icon {
-    font-size: 32px;
-    margin-bottom: 6px;
-    animation: phoenixGlow 3s ease-in-out infinite;
-  }
-  .brand-intro .brand-desc {
-    font-size: 12px;
-    color: var(--red);
-    letter-spacing: 3px;
-    font-weight: 600;
-  }
-  .lands-cards { display: flex; gap: 12px; width: 100%; margin-top: 18px; }
-  .land-card {
-    flex: 1;
-    border-radius: 14px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
-    text-align: center;
-  }
-  .land-card .img-placeholder {
-    height: 100px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px; color: white;
-  }
-  .land-card .img-placeholder.tea {
-    background: linear-gradient(135deg, #4a7a3a, #6a9a5a);
-  }
-  .land-card .img-placeholder.grass {
-    background: linear-gradient(135deg, #6a9a4a, #90b870);
-  }
-  .land-card .info { padding: 12px 10px; }
-  .land-card .name { font-weight: 700; font-size: 15px; color: var(--blue); margin-bottom: 4px; }
-  .land-card .detail { font-size: 11px; color: #888; line-height: 1.5; }
+  /* ──────────────────────── SCREEN 2: TWO LANDS ──────────────────────── */
+  .slide-lands { background: #f2efe8; padding-top: 56px; }
+  .lands-illo { width: 100%; height: 140px; margin: 16px 0; }
 
-  /* ── ============ CABIN WINDOW FRAME ============ ── */
-  .cabin-frame {
-    position: absolute;
-    inset: 16px;
-    border-radius: 20px;
-    border: 3px solid rgba(255,255,255,.25);
-    pointer-events: none;
-    z-index: 5;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.1), 0 0 0 2px rgba(0,0,0,.05);
-  }
+  /* ──────────────────────── SCREEN 3: TEA ──────────────────────── */
+  .slide-tea { background: #e8ede3; }
+  .tea-illo { width: 100%; height: 120px; margin-bottom: 14px; }
 
-  /* ── ============ SCREEN 3: TEA INDUSTRY ============ ── */
-  .slide-tea {
-    background: var(--tea-green);
+  /* ──────────────────────── SCREEN 4: CULTURE ──────────────────────── */
+  .slide-culture { background: #d9e6d0; }
+  .culture-illo { width: 100%; height: 100px; margin-bottom: 12px; }
+
+  /* ──────────────────────── SCREEN 5: EDUCATION ──────────────────────── */
+  .slide-edu { background: #faf9f6; }
+  .edu-illo { width: 100%; height: 100px; margin-bottom: 14px; }
+
+  /* ──────────────────────── SCREEN 7: HOPE ──────────────────────── */
+  .slide-hope { background: linear-gradient(180deg, #f8f6f2 0%, #e8e4db 100%); }
+  .hope-illo { width: 100%; height: 110px; margin-bottom: 12px; }
+
+  /* ──────────────────────── SCREEN 8: RESULTS ──────────────────────── */
+  .slide-results { background: #faf9f6; }
+  .results-illo { width: 100%; height: 100px; margin-bottom: 8px; }
+
+  /* ──────────────────────── SCREEN 9: ENDING ──────────────────────── */
+  .slide-end {
+    background: linear-gradient(180deg, #030a14 0%, #0a1f3d 25%, #0d2847 50%, #1a4a7a 85%, #255fa0 100%);
+    text-align: center; position: relative;
   }
-  .tea-quote {
-    font-style: italic;
-    color: #666;
-    font-size: 13px;
-    border-left: 3px solid var(--red);
-    padding-left: 14px;
-    margin: 4px 0 16px;
-    text-align: left;
-  }
-  .data-row {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    margin-top: 12px;
-  }
-  .data-card {
-    flex: 1;
-    background: white;
-    border-radius: 12px;
-    padding: 16px 10px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  }
-  .data-card.accent-red { border-top: 3px solid var(--red); }
-  .data-card.accent-blue { border-top: 3px solid var(--blue); }
-  .data-card.accent-gold { border-top: 3px solid var(--gold); }
-  .data-card .num {
-    font-family: "DIN Alternate", "Helvetica Neue", sans-serif;
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: -1px;
-  }
+  .end-svg-layer { position: absolute; inset: 0; z-index: 1; }
+  .end-title { font-family: "Noto Serif SC","思源宋体",serif; font-size: 30px; font-weight: 900; color: white; position: relative; z-index: 3; letter-spacing: 5px; text-shadow: 0 2px 20px rgba(0,0,0,.5); }
+  .end-sub { color: var(--gold); font-size: 14px; margin-top: 14px; position: relative; z-index: 3; letter-spacing: 3px; }
+  .end-body { color: rgba(255,255,255,.8); font-size: 13px; line-height: 2.1; position: relative; z-index: 3; margin-top: 24px; text-align: center; }
+  .end-brand { margin-top: 20px; padding: 10px 20px; border: 1px solid rgba(196,30,42,.4); border-radius: 24px; font-size: 12px; color: rgba(255,255,255,.85); letter-spacing: 3px; position: relative; z-index: 3; }
+  .end-logo { position: relative; z-index: 3; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); width: 100%; }
+  .end-logo .brand { font-family: "Noto Serif SC",serif; font-size: 15px; font-weight: 700; color: white; letter-spacing: 3px; }
+  .end-logo .url { font-size: 11px; color: rgba(255,255,255,.45); margin-top: 6px; }
+  .end-share { display: inline-block; margin-top: 18px; padding: 10px 32px; border: 1px solid rgba(255,255,255,.35); border-radius: 24px; color: white; font-size: 13px; letter-spacing: 2px; position: relative; z-index: 3; }
+
+  /* ── shared component styles ── */
+  .data-row { display: flex; gap: 10px; width: 100%; margin-top: 12px; }
+  .data-card { flex: 1; background: white; border-radius: 12px; padding: 16px 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .data-card.red-top { border-top: 3px solid var(--red); }
+  .data-card.blue-top { border-top: 3px solid var(--blue); }
+  .data-card.gold-top { border-top: 3px solid var(--gold); }
+  .data-card .num { font-family: "DIN Alternate","Helvetica Neue",sans-serif; font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
   .data-card .num.blue { color: var(--blue); }
   .data-card .num.red { color: var(--red); }
-  .data-card .label {
-    font-size: 11px;
-    color: #888;
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-  .route-badge {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 6px 16px;
-    background: var(--blue);
-    color: white;
-    border-radius: 20px;
-    font-size: 11px;
-    letter-spacing: 2px;
-  }
+  .data-card .label { font-size: 11px; color: #888; margin-top: 4px; line-height: 1.4; }
 
-  /* ── ============ SCREEN 4: CULTURE ============ ── */
-  .slide-culture { background: var(--grass-green); }
-  .quote-block {
-    background: white;
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-top: 16px;
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  }
-  .quote-block::before {
-    content: '"';
-    position: absolute;
-    top: 2px; left: 14px;
-    font-size: 52px;
-    color: var(--red);
-    font-family: Georgia, serif;
-    line-height: 1;
-    opacity: .7;
-  }
-  .quote-block .q-text {
-    font-family: "Noto Serif SC", "思源宋体", serif;
-    font-size: 16px;
-    color: var(--blue);
-    font-weight: 600;
-    padding-left: 10px;
-    line-height: 1.6;
-  }
-  .quote-block .q-src {
-    font-size: 12px;
-    color: #999;
-    margin-top: 8px;
-    text-align: right;
-  }
-  .music-note {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 14px;
-    padding: 6px 14px;
-    background: rgba(0,61,140,.08);
-    border-radius: 16px;
-    font-size: 12px;
-    color: var(--blue);
-    letter-spacing: 1px;
-  }
+  .tea-quote { font-style: italic; color: #666; font-size: 13px; border-left: 3px solid var(--red); padding-left: 14px; margin: 4px 0 16px; text-align: left; }
 
-  /* ── ============ SCREEN 5: EDUCATION ============ ── */
-  .slide-edu { background: var(--warm-white); }
-  .badge-row {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    margin-top: 12px;
-  }
-  .badge {
-    flex: 1;
-    background: linear-gradient(135deg, #fef9f0, #fdf3e0);
-    border: 1px solid rgba(200,151,74,.3);
-    border-radius: 10px;
-    padding: 14px 10px;
-    text-align: center;
-    font-size: 12px;
-    color: #8a6d3b;
-    line-height: 1.5;
-  }
-  .badge .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+  .quote-block { background: white; border-radius: 12px; padding: 20px 18px; margin-top: 16px; position: relative; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .quote-block::before { content: '"'; position: absolute; top: 2px; left: 14px; font-size: 52px; color: var(--red); font-family: Georgia,serif; line-height: 1; opacity: .7; }
+  .quote-block .q-text { font-family: "Noto Serif SC","思源宋体",serif; font-size: 16px; color: var(--blue); font-weight: 600; padding-left: 10px; line-height: 1.6; }
+  .quote-block .q-src { font-size: 12px; color: #999; margin-top: 8px; text-align: right; }
+
+  .badge-row { display: flex; gap: 10px; width: 100%; margin-top: 12px; }
+  .badge { flex: 1; background: linear-gradient(135deg,#fef9f0,#fdf3e0); border: 1px solid rgba(200,151,74,.3); border-radius: 10px; padding: 14px 10px; text-align: center; font-size: 12px; color: #8a6d3b; line-height: 1.5; }
   .badge strong { color: var(--red); }
-  .phoenix-name-highlight {
-    color: var(--red);
-    font-weight: 700;
-  }
 
-  /* ── ============ SCREEN 6: LIVELIHOOD ============ ── */
-  .slide-live { background: #f5f2ed; }
-  .highlight-word {
-    font-family: "Noto Serif SC", "思源宋体", serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--blue);
-    letter-spacing: 4px;
-    text-align: center;
-    padding: 8px 0;
-    border-bottom: 2px solid var(--red);
-    display: inline-block;
-    margin-bottom: 12px;
-  }
+  .golden-line { font-family: "Noto Serif SC","思源宋体",serif; font-size: 20px; font-weight: 700; color: var(--blue); text-align: center; line-height: 1.6; position: relative; margin-top: 20px; }
+  .golden-line::before { content: ''; display: block; width: 40px; height: 2px; background: var(--red); margin: 0 auto 14px; }
 
-  /* ── ============ SCREEN 7: HOPE ============ ── */
-  .slide-hope { background: linear-gradient(180deg, #f8f6f2 0%, #e8e4db 100%); }
-  .golden-line {
-    font-family: "Noto Serif SC", "思源宋体", serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--blue);
-    text-align: center;
-    line-height: 1.6;
-    position: relative;
-    margin-top: 20px;
-  }
-  .golden-line::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--red);
-    margin: 0 auto 14px;
-  }
-
-  /* ── ============ SCREEN 8: RESULTS ============ ── */
-  .slide-results { background: var(--warm-white); }
-  .results-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    margin-top: 12px;
-  }
-  .result-item {
-    background: white;
-    border-radius: 10px;
-    padding: 16px 12px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,.03);
-    border-top: 3px solid var(--red);
-  }
-  .result-item .r-num {
-    font-family: "DIN Alternate", "Helvetica Neue", sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--blue);
-  }
+  .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; margin-top: 12px; }
+  .result-item { background: white; border-radius: 10px; padding: 16px 12px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,.03); border-top: 3px solid var(--red); }
+  .result-item .r-num { font-family: "DIN Alternate","Helvetica Neue",sans-serif; font-size: 24px; font-weight: 800; color: var(--blue); }
   .result-item .r-label { font-size: 11px; color: #888; margin-top: 4px; line-height: 1.4; }
-  .honor-list {
-    width: 100%;
-    margin-top: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .honor-item {
-    font-size: 12px;
-    color: #666;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-  }
-  .honor-item .trophy { flex-shrink: 0; }
+  .honor-list { width: 100%; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .honor-item { font-size: 12px; color: #666; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
 
-  /* ── ============ SCREEN 9: ENDING ============ ── */
-  .slide-end {
-    background: linear-gradient(180deg, #050d1a 0%, #0a1f3d 20%, #0d2847 50%, #1a4a7a 85%, #255fa0 100%);
-    text-align: center;
-    position: relative;
-  }
-  .slide-end::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 50% 8%, rgba(255,255,255,.08) 0%, transparent 55%),
-      radial-gradient(ellipse at 45% 60%, rgba(196,30,42,.12) 0%, transparent 45%);
-  }
-  /* Phoenix glow at end */
-  .end-phoenix {
-    position: absolute;
-    top: 14%; left: 50%; transform: translateX(-50%);
-    width: 160px; height: 140px;
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(196,30,42,.6) 0%, transparent 50%),
-      radial-gradient(ellipse at 30% 50%, rgba(196,30,42,.35) 0%, transparent 45%),
-      radial-gradient(ellipse at 70% 50%, rgba(196,30,42,.35) 0%, transparent 45%),
-      radial-gradient(ellipse at 50% 65%, rgba(200,151,74,.3) 0%, transparent 40%);
-    filter: blur(25px);
-    opacity: .5;
-    animation: phoenixGlow 4s ease-in-out infinite;
-  }
-  .end-flight {
-    position: absolute;
-    top: 22%; left: 8%; right: 8%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(200,151,74,.5) 25%, rgba(200,151,74,.8) 55%, rgba(200,151,74,.5) 85%, transparent);
-    transform: rotate(-6deg);
-    transform-origin: left center;
-    z-index: 2;
-  }
-  .end-flight::after {
-    content: '✈';
-    position: absolute;
-    right: 6%; top: -13px;
-    font-size: 18px;
-    transform: rotate(6deg);
-    filter: drop-shadow(0 0 10px rgba(200,151,74,.8));
-    animation: flyAway 4.5s ease-in-out infinite;
-  }
-  @keyframes flyAway {
-    0% { right: 6%; opacity: .5; }
-    50% { right: -6%; opacity: 1; }
-    100% { right: 6%; opacity: .5; }
-  }
-  .end-title {
-    font-family: "Noto Serif SC", "思源宋体", serif;
-    font-size: 30px;
-    font-weight: 900;
-    color: white;
-    position: relative;
-    z-index: 3;
-    letter-spacing: 5px;
-    text-shadow: 0 2px 20px rgba(0,0,0,.5);
-  }
-  .end-sub {
-    color: var(--gold);
-    font-size: 14px;
-    margin-top: 14px;
-    position: relative;
-    z-index: 3;
-    letter-spacing: 3px;
-  }
-  .end-body {
-    color: rgba(255,255,255,.8);
-    font-size: 13px;
-    line-height: 2.1;
-    position: relative;
-    z-index: 3;
-    margin-top: 24px;
-    text-align: center;
-  }
-  .end-brand-positioning {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 1px solid rgba(196,30,42,.4);
-    border-radius: 24px;
-    font-size: 12px;
-    color: rgba(255,255,255,.85);
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 3;
-  }
-  .end-logo {
-    position: relative;
-    z-index: 3;
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.12);
-    width: 100%;
-  }
-  .end-logo .phoenix-logo {
-    font-size: 40px;
-    margin-bottom: 8px;
-  }
-  .end-logo .brand {
-    font-family: "Noto Serif SC", serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 3px;
-  }
-  .end-logo .url {
-    font-size: 11px;
-    color: rgba(255,255,255,.45);
-    margin-top: 6px;
-  }
-  .end-share {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 10px 32px;
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 24px;
-    color: white;
-    font-size: 13px;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 3;
-    transition: all .3s;
-  }
-  .end-share:hover {
-    background: rgba(255,255,255,.1);
-    border-color: rgba(255,255,255,.6);
-  }
+  .route-badge { display: inline-block; margin-top: 14px; padding: 6px 16px; background: var(--blue); color: white; border-radius: 20px; font-size: 11px; letter-spacing: 2px; }
+  .music-note { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 6px 14px; background: rgba(0,61,140,.08); border-radius: 16px; font-size: 12px; color: var(--blue); letter-spacing: 1px; }
 
-  /* ── ============ RESPONSIVE ============ ── */
   @media (max-width: 420px) {
-    .phone-frame {
-      width: 100vw;
-      height: 100vh;
-      border-radius: 0;
-      box-shadow: none;
-    }
+    .phone-frame { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; }
   }
 </style>
 </head>
@@ -646,86 +163,154 @@
 
 <div class="phone-frame">
 
-  <!-- Dot Navigation -->
   <div class="dot-nav" id="dotNav">
-    <div class="dot active"></div>
-    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    <div class="dot"></div><div class="dot"></div>
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
   </div>
 
   <div class="slides" id="slidesContainer">
 
     <!-- ═══════════ 1. COVER ═══════════ -->
     <div class="slide slide-cover" data-index="0">
-      <div class="stars"></div>
-      <div class="phoenix-silhouette"></div>
-      <div class="flight-path"></div>
-      <div class="clouds"></div>
+      <svg class="cover-svg-layer" viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="skyGlow" cx="55%" cy="18%" r="50%"><stop offset="0%" stop-color="#fff" stop-opacity=".12"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="phoenixGlow" cx="50%" cy="30%" r="40%"><stop offset="0%" stop-color="#C41E2A" stop-opacity=".25"/><stop offset="50%" stop-color="#C41E2A" stop-opacity=".08"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="goldGlow" cx="50%" cy="65%" r="35%"><stop offset="0%" stop-color="#C8974A" stop-opacity=".12"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="50%" stop-color="#fff" stop-opacity=".04"/><stop offset="100%" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+        </defs>
+        <!-- sky glow -->
+        <rect width="390" height="844" fill="url(#skyGlow)"/>
+        <!-- stars -->
+        <g fill="white">
+          <circle cx="55" cy="180" r="1.2" opacity=".8"/><circle cx="280" cy="120" r=".8" opacity=".6"/><circle cx="130" cy="340" r="1" opacity=".5"/>
+          <circle cx="320" cy="420" r="1.3" opacity=".7"/><circle cx="70" cy="500" r=".7" opacity=".4"/><circle cx="200" cy="600" r=".9" opacity=".5"/>
+          <circle cx="340" cy="250" r="1" opacity=".5"/><circle cx="160" cy="90" r="1.4" opacity=".8"/><circle cx="300" cy="580" r=".8" opacity=".3"/>
+          <circle cx="45" cy="380" r=".6" opacity=".4"/><circle cx="360" cy="160" r=".9" opacity=".6"/><circle cx="100" cy="650" r=".7" opacity=".4"/>
+        </g>
+        <!-- phoenix silhouette -->
+        <g transform="translate(195,100)" opacity=".14">
+          <ellipse cx="0" cy="0" rx="90" ry="80" fill="url(#phoenixGlow)"/>
+          <path d="M-30,-50 C-60,-90 -100,-70 -80,-30 C-70,-10 -50,0 -30,-10 C-10,-20 0,-50 -30,-50Z" fill="#C41E2A"/>
+          <path d="M30,-50 C60,-90 100,-70 80,-30 C70,-10 50,0 30,-10 C10,-20 0,-50 30,-50Z" fill="#C41E2A"/>
+          <path d="M-20,-30 C-40,-20 -50,10 -30,30 C-10,50 10,50 30,30 C50,10 40,-20 20,-30 C0,-40 -10,-40 -20,-30Z" fill="#C41E2A"/>
+        </g>
+        <!-- gold glow base -->
+        <ellipse cx="195" cy="560" rx="150" ry="120" fill="url(#goldGlow)"/>
+        <!-- flight path -->
+        <path d="M20,280 Q100,260 180,275 Q260,290 370,268" fill="none" stroke="#C8974A" stroke-width="1" opacity=".5" stroke-dasharray="4,6"/>
+        <g transform="translate(290,265)"><path d="M0,-10 L12,0 L0,10 L4,0Z" fill="#C8974A" opacity=".8"><animateTransform attributeName="transform" type="translate" values="0,0;-15,2;0,0" dur="3s" repeatCount="indefinite"/></path></g>
+        <!-- clouds at bottom -->
+        <path d="M-20,720 Q60,680 140,710 Q220,740 300,700 Q380,680 420,720 L420,844 L-20,844Z" fill="url(#cloudGrad)"/>
+        <path d="M-30,770 Q80,730 180,760 Q280,790 380,750 Q430,740 440,770 L440,844 L-30,844Z" fill="url(#cloudGrad)" opacity=".7"/>
+      </svg>
       <h1 class="cover-main-title">航迹所至<br>皆是热土</h1>
       <p class="cover-sub-title">中航集团定点帮扶<br>广西昭平 · 内蒙古苏尼特右旗<br>十二年纪实</p>
-      <div class="cover-flag-badge">
-        <span class="flag">🇨🇳</span> 中国唯一载国旗飞行的民用航空公司
-      </div>
+      <div class="cover-flag-badge">🇨🇳 中国唯一载国旗飞行的民用航空公司</div>
       <div class="cover-swipe">滑动起飞</div>
     </div>
 
-    <!-- ═══════════ 2. MISSION ═══════════ -->
+    <!-- ═══════════ 2. TWO LANDS ═══════════ -->
     <div class="slide slide-lands" data-index="1">
-      <div class="brand-intro">
-        <div class="phoenix-icon">🔴🪽</div>
-        <div class="brand-desc">专业信赖 · 国际品质 · 中国风范</div>
+      <div style="text-align:center;margin-bottom:8px;">
+        <span style="font-size:12px;color:var(--red);letter-spacing:3px;font-weight:600;">专业信赖 · 国际品质 · 中国风范</span>
       </div>
       <span class="section-tag">使 命</span>
       <h2 class="slide-title">从草原到茶园<br>两片土地的千里相会</h2>
-      <p class="slide-body">
-        2012 年起，中航集团（中国国航母公司）受命定点帮扶广西壮族自治区昭平县与内蒙古自治区苏尼特右旗。
-        一边是桂东大山深处的茶乡，森林覆盖率超 81%；一边是锡林郭勒草原上的边境牧业旗，2.23万平方公里辽阔大地。
-        两地相隔千里，却因同一份央企担当而紧紧相连——凤凰所至，皆为祥瑞。
+
+      <!-- Dual landscape SVG -->
+      <svg class="lands-illo" viewBox="0 0 334 140" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left: Tea terraces -->
+        <g transform="translate(0,0)">
+          <rect x="0" y="0" width="160" height="140" rx="10" fill="#f5f7f2"/>
+          <!-- sky -->
+          <rect x="0" y="0" width="160" height="70" rx="10" fill="#e5ecfa"/>
+          <circle cx="120" cy="20" r="8" fill="#fff3c0" opacity=".8"/>
+          <!-- distant mountains -->
+          <path d="M0,55 L30,30 L55,45 L80,25 L110,42 L140,20 L160,50 L160,70 L0,70Z" fill="#c8d8c0" opacity=".6"/>
+          <!-- tea terraces -->
+          <path d="M0,65 L40,55 L70,62 L100,52 L130,60 L160,50 L160,80 L0,80Z" fill="#7aaa5a"/>
+          <path d="M0,78 L35,68 L65,75 L95,65 L125,73 L160,63 L160,93 L0,93Z" fill="#6a9a4a"/>
+          <path d="M0,90 L30,82 L60,88 L90,80 L120,87 L160,78 L160,105 L0,105Z" fill="#5a8a3a"/>
+          <!-- tea picker -->
+          <circle cx="80" cy="58" r="4" fill="#d4845a"/><rect x="78" y="62" width="4" height="6" fill="#d4845a" rx="1"/>
+          <circle cx="50" cy="72" r="3.5" fill="#c47a50"/><rect x="48" y="75" width="4" height="5" fill="#c47a50" rx="1"/>
+          <!-- tea bush details -->
+          <ellipse cx="100" cy="82" rx="8" ry="4" fill="#8aba4a" opacity=".6"/>
+          <ellipse cx="55" cy="92" rx="10" ry="3" fill="#8aba3a" opacity=".5"/>
+          <!-- label -->
+          <text x="80" y="130" text-anchor="middle" font-size="10" fill="#5a8a3a" font-weight="700">🌿 广西 · 昭平</text>
+        </g>
+        <!-- Center: route connecting line -->
+        <path d="M162,70 Q167,65 172,70" fill="none" stroke="#C8974A" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <g transform="translate(167,68)"><text font-size="12">✈</text></g>
+        <!-- Right: Grassland -->
+        <g transform="translate(174,0)">
+          <rect x="0" y="0" width="160" height="140" rx="10" fill="#f5f7f2"/>
+          <!-- sky -->
+          <rect x="0" y="0" width="160" height="60" rx="10" fill="#d8eef8"/>
+          <circle cx="30" cy="18" r="9" fill="#fff8d0" opacity=".9"/>
+          <circle cx="55" cy="42" r="12" fill="white" opacity=".6"/>
+          <circle cx="75" cy="38" r="8" fill="white" opacity=".5"/>
+          <circle cx="50" cy="50" r="6" fill="white" opacity=".4"/>
+          <!-- rolling grassland -->
+          <path d="M0,55 Q40,40 80,50 Q120,60 160,42 L160,70 L0,70Z" fill="#b8d898"/>
+          <path d="M0,65 Q50,52 100,60 Q140,66 160,55 L160,82 L0,82Z" fill="#a0c880"/>
+          <path d="M0,78 Q45,66 90,74 Q135,82 160,70 L160,95 L0,95Z" fill="#88b468"/>
+          <!-- yurts -->
+          <g transform="translate(45,50)"><path d="M0,0 L6,14 L-6,14Z" fill="white" stroke="#ddd" stroke-width=".5"/><rect x="-4" y="14" width="8" height="3" fill="#e8d8c0" rx="1"/></g>
+          <g transform="translate(110,44)"><path d="M0,0 L5,12 L-5,12Z" fill="white" stroke="#ddd" stroke-width=".5"/><rect x="-3.5" y="12" width="7" height="2.5" fill="#e8d8c0" rx="1"/></g>
+          <!-- sheep -->
+          <ellipse cx="85" cy="62" rx="4" ry="3" fill="white"/><circle cx="88" cy="60" r="2" fill="#eee"/>
+          <ellipse cx="30" cy="72" rx="3.5" ry="2.5" fill="white"/><circle cx="33" cy="70" r="1.8" fill="#eee"/>
+          <!-- label -->
+          <text x="80" y="130" text-anchor="middle" font-size="10" fill="#6a8a3a" font-weight="700">🏕️ 内蒙古 · 苏尼特右旗</text>
+        </g>
+      </svg>
+
+      <p class="slide-body center" style="font-size:13px;">
+        2012 年起，中航集团受命定点帮扶两地。<br>千里相隔，因同一份央企担当而紧紧相连。<br><span style="color:var(--red);font-weight:600;">凤凰所至，皆为祥瑞。</span>
       </p>
-      <div class="lands-cards">
-        <div class="land-card">
-          <div class="img-placeholder tea">🌿🍵</div>
-          <div class="info">
-            <div class="name">广西 · 昭平</div>
-            <div class="detail">3,273 km² · 44.8万人口<br>2020年退出贫困县序列<br>国家乡村振兴重点帮扶县</div>
-          </div>
-        </div>
-        <div class="land-card">
-          <div class="img-placeholder grass">🏕️🌾</div>
-          <div class="info">
-            <div class="name">内蒙古 · 苏尼特右旗</div>
-            <div class="detail">2.23万 km² · 5.9万人口<br>2019年退出国家贫困县序列<br>11个民族聚居边境牧业旗</div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- ═══════════ 3. TEA ═══════════ -->
+    <!-- ═══════════ 3. TEA INDUSTRY ═══════════ -->
     <div class="slide slide-tea" data-index="2">
       <span class="section-tag">产 业</span>
       <h2 class="slide-title">为「一片叶子」<br>插上「中国之翼」</h2>
+
+      <!-- Tea illustration -->
+      <svg class="tea-illo" viewBox="0 0 334 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tea terrace -->
+        <path d="M20,60 Q80,40 140,55 Q200,70 260,48 Q300,40 320,50 L320,100 L20,100Z" fill="#b8d898"/>
+        <path d="M20,72 Q70,55 130,68 Q190,80 250,62 Q290,55 320,60 L320,100 L20,100Z" fill="#a0c880"/>
+        <path d="M20,85 Q65,72 120,80 Q180,90 240,76 Q290,70 320,75 L320,100 L20,100Z" fill="#88b468"/>
+        <!-- Tea leaves -->
+        <g transform="translate(80,50)">
+          <ellipse cx="0" cy="0" rx="12" ry="5" fill="#5a9a3a" transform="rotate(-20)"/><ellipse cx="0" cy="0" rx="12" ry="4.5" fill="#6aaa4a" transform="rotate(15)"/>
+          <line x1="-8" y1="-2" x2="8" y2="2" stroke="#4a8a2a" stroke-width=".5"/>
+        </g>
+        <g transform="translate(130,60)"><ellipse cx="0" cy="0" rx="10" ry="4" fill="#5a9a3a" transform="rotate(-25)"/><ellipse cx="0" cy="0" rx="10" ry="3.5" fill="#6aaa4a" transform="rotate(18)"/></g>
+        <g transform="translate(60,68)"><ellipse cx="0" cy="0" rx="9" ry="3.5" fill="#4a8a2a" transform="rotate(-15)"/><ellipse cx="0" cy="0" rx="9" ry="3" fill="#5a9a3a" transform="rotate(20)"/></g>
+        <!-- Airplane -->
+        <g transform="translate(225,25)">
+          <path d="M0,0 L25,0 L28,-3 L28,3 L25,0" fill="var(--blue)"/>
+          <path d="M8,-6 L12,-14 L16,-6" fill="none" stroke="var(--blue)" stroke-width="1.5"/>
+          <path d="M10,-14 L12,-20 L14,-14" fill="var(--blue)" opacity=".6"/>
+          <ellipse cx="12" cy="0" rx="8" ry="2.5" fill="white" opacity=".3"/>
+        </g>
+        <!-- Route line -->
+        <path d="M80,40 Q150,20 225,25" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="5,4" opacity=".6"/>
+        <!-- Tea cup on plane -->
+        <g transform="translate(200,15)"><rect x="-4" y="-5" width="8" height="6" rx="1" fill="white" stroke="#ccc" stroke-width=".4"/><ellipse cx="0" cy="-5" rx="4" ry="1.5" fill="#e8d8b0"/></g>
+      </svg>
+
       <div class="tea-quote">
-        "以前我们靠手工炒茶，品质不稳定。现在有了自动化生产线，有机茶卖到了美国、加拿大、澳大利亚。"
+        "以前靠手工炒茶，品质不稳定。现在有了自动化生产线，有机茶卖到了美国、加拿大、澳大利亚。"
       </div>
       <div class="data-row">
-        <div class="data-card accent-red">
-          <div class="num red" data-target="2.1">0</div>
-          <div class="label">将军峰集团<br>年营收（亿元）</div>
-        </div>
-        <div class="data-card accent-blue">
-          <div class="num blue" data-target="29.17">0</div>
-          <div class="label">资产总值<br>（亿元）</div>
-        </div>
-        <div class="data-card accent-gold">
-          <div class="num" data-target="58.42">0</div>
-          <div class="label">"昭平茶"<br>品牌价值（亿元）</div>
-        </div>
+        <div class="data-card red-top"><div class="num red" data-target="2.1">0</div><div class="label">将军峰集团<br>年营收（亿元）</div></div>
+        <div class="data-card blue-top"><div class="num blue" data-target="29.17">0</div><div class="label">资产总值<br>（亿元）</div></div>
+        <div class="data-card gold-top"><div class="num" data-target="58.42">0</div><div class="label">"昭平茶"<br>品牌价值（亿元）</div></div>
       </div>
-      <p class="slide-body center" style="margin-top:14px; font-size:12px; color:#666;">
-        十二年累计投入超 <strong>8,000 万元</strong> · 辐射带动 <strong>103 个</strong>村级集体经济<br>
-        有机茶通过国航全球航线网络销往欧美，覆盖旅客超 <strong>6,000 万人次</strong>
-      </p>
       <div class="route-badge">🛫 国航 28 条航线 · 65 个航班指定用茶</div>
     </div>
 
@@ -733,13 +318,51 @@
     <div class="slide slide-culture" data-index="3">
       <span class="section-tag">文 化</span>
       <h2 class="slide-title">草原与茶园的<br>千里相会</h2>
+
+      <!-- Culture illustration: performance + instruments -->
+      <svg class="culture-illo" viewBox="0 0 334 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left: Ulan Muqir performer -->
+        <g transform="translate(40,15)">
+          <!-- body -->
+          <rect x="-4" y="5" width="8" height="20" rx="3" fill="#1a3a6a"/>
+          <!-- head -->
+          <circle cx="0" cy="2" r="7" fill="#d4a574"/>
+          <!-- hat -->
+          <path d="M-8,0 L0,-8 L8,0Z" fill="#8B0000"/>
+          <!-- arms raised -->
+          <line x1="-4" y1="10" x2="-15" y2="-5" stroke="#d4a574" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4" y1="10" x2="15" y2="-5" stroke="#d4a574" stroke-width="3" stroke-linecap="round"/>
+          <!-- music notes -->
+          <text x="-22" y="-10" font-size="14" fill="#C41E2A">♪</text>
+          <text x="10" y="-12" font-size="12" fill="#C41E2A">♫</text>
+        </g>
+        <!-- Center: connection -->
+        <g transform="translate(145,10)">
+          <circle cx="0" cy="15" r="20" fill="none" stroke="#C8974A" stroke-width=".8" stroke-dasharray="4,3" opacity=".5"/>
+          <text x="0" y="12" text-anchor="middle" font-size="22">🤝</text>
+        </g>
+        <!-- Right: tea ceremony / non-heritage -->
+        <g transform="translate(260,20)">
+          <rect x="-12" y="5" width="24" height="16" rx="3" fill="#5a3a1a" opacity=".7"/>
+          <ellipse cx="0" cy="3" rx="8" ry="2" fill="#e8d8b0"/>
+          <path d="M-6,3 Q0,14 6,3" fill="none" stroke="white" stroke-width=".5" opacity=".5"/>
+          <!-- steam -->
+          <path d="M-3,0 Q-5,-8 -2,-12" fill="none" stroke="white" stroke-width=".6" opacity=".4"/>
+          <path d="M3,-1 Q5,-9 2,-13" fill="none" stroke="white" stroke-width=".5" opacity=".3"/>
+          <!-- hands holding cup -->
+          <ellipse cx="-7" cy="12" rx="5" ry="3" fill="#d4a574" opacity=".7"/>
+          <ellipse cx="7" cy="12" rx="5" ry="3" fill="#d4a574" opacity=".7"/>
+        </g>
+        <!-- Bottom decoration -->
+        <line x1="40" y1="85" x2="294" y2="85" stroke="#C8974A" stroke-width=".5" opacity=".3"/>
+        <text x="167" y="97" text-anchor="middle" font-size="9" fill="#888">草原 ⇢ 非遗传承 ⇢ 茶乡</text>
+      </svg>
+
       <p class="slide-body">
         2017 年，习近平总书记给苏尼特右旗乌兰牧骑队员回信，勉励他们"永远做草原上的红色文艺轻骑兵"。中航集团累计投入 <strong>600 余万元</strong>支持乌兰牧骑事业发展。
       </p>
-      <p class="slide-body" style="margin-top:10px;">
-        2024 年深秋，一场「传承非遗瑰宝·共促文化振兴」主题活动，让草原的豪迈与茶乡的温婉首次同台。
-        帮扶干部原创歌曲《远方的远方》，于 2026 年元旦正式成为 <strong>国航登机音乐</strong>——
-        每一位国航旅客登机时，都能听见来自草原与茶园的深情。
+      <p class="slide-body" style="margin-top:8px;">
+        帮扶干部原创歌曲《远方的远方》，于 2026 年元旦正式成为 <strong>国航登机音乐</strong>——每一位旅客登机时，都能听见草原与茶园的深情。
       </p>
       <div class="music-note">🎵 《远方的远方》· 国航登机音乐</div>
       <div class="quote-block">
@@ -752,80 +375,130 @@
     <div class="slide slide-edu" data-index="4">
       <span class="section-tag">教 育</span>
       <h2 class="slide-title">用一万五千课时<br>换一个未来</h2>
+
+      <svg class="edu-illo" viewBox="0 0 334 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Classroom scene -->
+        <rect x="15" y="10" width="120" height="80" rx="6" fill="#fef9f0" stroke="#eee" stroke-width=".5"/>
+        <!-- blackboard -->
+        <rect x="25" y="16" width="50" height="30" rx="2" fill="#2a4a2a"/>
+        <text x="50" y="34" text-anchor="middle" font-size="9" fill="white">A B C D</text>
+        <text x="50" y="44" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.6)">蓝天课堂</text>
+        <!-- teacher -->
+        <circle cx="90" cy="35" r="6" fill="#d4a574"/><rect x="87" y="41" width="6" height="18" rx="2" fill="#003D8C"/>
+        <!-- kids -->
+        <circle cx="35" cy="65" r="5" fill="#e8c8a0"/><rect x="32" y="70" width="6" height="14" rx="2" fill="#e8732a"/>
+        <circle cx="55" cy="68" r="4.5" fill="#d4a574"/><rect x="52" y="72" width="6" height="12" rx="2" fill="#e8732a"/>
+        <circle cx="72" cy="64" r="5" fill="#e0b890"/><rect x="69" y="69" width="6" height="15" rx="2" fill="#e8732a"/>
+        <!-- raised hand -->
+        <line x1="38" y1="63" x2="30" y2="52" stroke="#e8c8a0" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Right: Plane taking kids to sky -->
+        <g transform="translate(200,20)">
+          <!-- C919 style plane -->
+          <path d="M0,25 L40,25 L44,21 L44,29 L40,25" fill="#003D8C"/>
+          <path d="M12,16 L18,4 L24,16" fill="none" stroke="#003D8C" stroke-width="2"/>
+          <ellipse cx="17" cy="25" rx="10" ry="3.5" fill="white" opacity=".3"/>
+          <!-- kids near plane -->
+          <circle cx="55" cy="30" r="6" fill="#d4a574"/><rect x="52" y="36" width="6" height="14" rx="2" fill="#e8732a"/>
+          <circle cx="72" cy="28" r="5" fill="#e8c8a0"/><rect x="69" y="34" width="6" height="16" rx="2" fill="#e8732a"/>
+          <!-- stars -->
+          <text x="38" y="8" font-size="10" fill="#C8974A">✦</text>
+          <text x="58" y="14" font-size="8" fill="#C8974A">✦</text>
+        </g>
+      </svg>
+
       <p class="slide-body">
-        2017 年起，「中航蓝天课堂」志愿支教项目启航。<strong>62 批次、576 人次</strong>国航志愿者从天南海北飞向昭平和苏尼特右旗的乡村学校，累计授课超过 <strong>1.5 万课时</strong>。
+        2017 年起，「中航蓝天课堂」志愿支教项目启航。<strong>62 批次、576 人次</strong>国航志愿者飞向乡村学校，累计授课超 <strong>1.5 万课时</strong>。
       </p>
-      <p class="slide-body" style="margin-top:10px;">
-        江口村小学的英语从"没人教"变成常态化课程。孩子们拥有了藏书超万册的图书阅览室，成立了
-        <span class="phoenix-name-highlight">「中航江口凤之音少儿合唱团」</span>——
-        "凤之音"，正是国航凤凰精神的回响。
-        他们登上 C919 首航仪式的舞台，在万米高空唱出了属于自己的歌声。
+      <p class="slide-body" style="margin-top:8px;">
+        孩子们成立了 <span style="color:var(--red);font-weight:700;">「中航江口凤之音少儿合唱团」</span>——"凤之音"，正是国航凤凰精神的回响。他们登上 C919 首航仪式舞台，在万米高空唱出自己的歌声。
       </p>
       <div class="data-row">
-        <div class="data-card accent-red">
-          <div class="num red" data-target="62">0</div>
-          <div class="label">支教批次</div>
-        </div>
-        <div class="data-card accent-blue">
-          <div class="num blue" data-target="576">0</div>
-          <div class="label">志愿者人次</div>
-        </div>
-        <div class="data-card accent-gold">
-          <div class="num" data-target="15000">0</div>
-          <div class="label">累计课时</div>
-        </div>
+        <div class="data-card red-top"><div class="num red" data-target="62">0</div><div class="label">支教批次</div></div>
+        <div class="data-card blue-top"><div class="num blue" data-target="576">0</div><div class="label">志愿者人次</div></div>
+        <div class="data-card gold-top"><div class="num" data-target="15000">0</div><div class="label">累计课时</div></div>
       </div>
       <div class="badge-row">
-        <div class="badge">
-          <span class="icon">🏆</span>
-          第六届<strong>全球减贫最佳案例</strong><br>
-          <span style="font-size:10px;">世界银行 · 联合国粮农组织等7家国际机构联合认证</span>
-        </div>
-        <div class="badge">
-          <span class="icon">🥇</span>
-          第七届中国青年志愿服务项目大赛 <strong>金奖</strong>
-        </div>
+        <div class="badge">🏆 第六届<strong>全球减贫最佳案例</strong><br><span style="font-size:10px;">世界银行·联合国粮农组织等7家国际机构认证</span></div>
+        <div class="badge">🥇 第七届中国青年志愿服务项目大赛 <strong>金奖</strong></div>
       </div>
     </div>
 
     <!-- ═══════════ 6. LIVELIHOOD ═══════════ -->
-    <div class="slide slide-live" data-index="5">
+    <div class="slide" style="background:#f5f2ed;" data-index="5">
       <span class="section-tag">民 生</span>
       <h2 class="slide-title">一座桥，一盏灯<br>一顿饭</h2>
+
+      <!-- Bridge SVG -->
+      <svg viewBox="0 0 334 110" style="width:100%;height:110px;margin-bottom:14px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- river -->
+        <path d="M0,70 Q80,60 160,68 Q240,76 334,65 L334,110 L0,110Z" fill="#b8d8f0" opacity=".5"/>
+        <path d="M0,78 Q80,70 160,76 Q240,84 334,74 L334,110 L0,110Z" fill="#a0c8e8" opacity=".4"/>
+        <!-- bridge arch -->
+        <path d="M60,90 Q120,45 180,90" fill="none" stroke="#8B7355" stroke-width="5" stroke-linecap="round"/>
+        <path d="M60,90 Q120,48 180,90" fill="none" stroke="#a08868" stroke-width="3"/>
+        <!-- bridge deck -->
+        <line x1="55" y1="90" x2="185" y2="90" stroke="#8B7355" stroke-width="4"/>
+        <!-- railings -->
+        <line x1="80" y1="78" x2="80" y2="90" stroke="#8B7355" stroke-width="1.5"/>
+        <line x1="100" y1="69" x2="100" y2="90" stroke="#8B7355" stroke-width="1.5"/>
+        <line x1="120" y1="66" x2="120" y2="90" stroke="#8B7355" stroke-width="1.5"/>
+        <line x1="140" y1="69" x2="140" y2="90" stroke="#8B7355" stroke-width="1.5"/>
+        <line x1="160" y1="78" x2="160" y2="90" stroke="#8B7355" stroke-width="1.5"/>
+        <!-- bridge label -->
+        <text x="120" y="62" text-anchor="middle" font-size="10" fill="#C41E2A" font-weight="700">连心桥</text>
+        <!-- village houses -->
+        <g transform="translate(20,50)"><rect x="0" y="0" width="14" height="12" fill="#e8d8c0"/><path d="M-2,0 L7,-8 L16,0Z" fill="#c44a2a"/></g>
+        <g transform="translate(48,46)"><rect x="0" y="0" width="12" height="10" fill="#e0d0b8"/><path d="M-2,0 L6,-7 L14,0Z" fill="#c44a2a"/></g>
+        <g transform="translate(200,48)"><rect x="0" y="0" width="14" height="12" fill="#e8d8c0"/><path d="M-2,0 L7,-8 L16,0Z" fill="#c44a2a"/></g>
+        <!-- streetlight -->
+        <g transform="translate(250,40)"><rect x="-1" y="0" width="2" height="25" fill="#666"/><ellipse cx="0" cy="-2" rx="4" ry="3" fill="#ffd700" opacity=".8"/><circle cx="0" cy="-2" r="6" fill="#ffd700" opacity=".15"/></g>
+        <!-- heart icon on bridge -->
+        <text x="120" y="82" text-anchor="middle" font-size="14">❤️</text>
+      </svg>
+
       <p class="slide-body">
-        2018 年，中航集团投入 <strong>150 万元</strong>，为昭平县江口村古站片修建大桥。当地群众自发命名为——<strong>「连心桥」</strong>。从此，6 个村民小组告别了靠船出行的历史。
+        2018 年，中航集团投入 <strong>150 万元</strong>，为昭平县江口村修建大桥。当地群众自发命名为<strong>「连心桥」</strong>——6 个村民小组从此告别了靠船出行的历史。
       </p>
-      <p class="slide-body" style="margin-top:10px;">
-        路通了，灯亮了，水来了。<strong>997 万元</strong>投入村屯道路硬化、路灯照明、人饮工程和水渠改造，<strong>4,700 余名</strong>群众直接受益。江口村蝶变为<strong>「全国老年友好型示范社区」「全国文明村镇」</strong>。
+      <p class="slide-body" style="margin-top:8px;">
+        <strong>997 万元</strong>投入道路硬化、路灯照明、水渠改造，<strong>4,700 余名</strong>群众受益。江口村蝶变为<strong>「全国文明村镇」</strong>。
       </p>
       <div class="data-row">
-        <div class="data-card accent-red">
-          <div class="num red" data-target="25000">0</div>
-          <div class="label">移动体检车<br>服务人次</div>
-        </div>
-        <div class="data-card accent-blue">
-          <div class="num blue" data-target="187">0</div>
-          <div class="label">中航助餐<br>服务老人数</div>
-        </div>
-        <div class="data-card accent-gold">
-          <div class="num" data-target="4700">0</div>
-          <div class="label">基础设施<br>受益群众</div>
-        </div>
+        <div class="data-card red-top"><div class="num red" data-target="25000">0</div><div class="label">体检车<br>服务人次</div></div>
+        <div class="data-card blue-top"><div class="num blue" data-target="187">0</div><div class="label">助餐服务<br>老人数</div></div>
+        <div class="data-card gold-top"><div class="num" data-target="4700">0</div><div class="label">基础设施<br>受益群众</div></div>
       </div>
-      <p class="slide-body center" style="margin-top:14px; font-size:12px; color:#666;">
-        携手中国红十字会 · 为苏尼特右旗全体牧民发放「健康医疗包」
-      </p>
     </div>
 
     <!-- ═══════════ 7. HOPE ═══════════ -->
     <div class="slide slide-hope" data-index="6">
       <span class="section-tag">希 望</span>
       <h2 class="slide-title">从茶园到候机楼<br>从草原到蓝天</h2>
+
+      <svg class="hope-illo" viewBox="0 0 334 110" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background: tea field to airport transition -->
+        <defs><linearGradient id="hopeGrad" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#7aaa5a"/><stop offset="40%" stop-color="#d0c8b0"/><stop offset="100%" stop-color="#c8d8e8"/></linearGradient></defs>
+        <rect x="0" y="55" width="334" height="55" fill="url(#hopeGrad)" opacity=".4"/>
+        <!-- Left: tea field -->
+        <g transform="translate(15,55)"><path d="M0,5 L8,-8 L16,5" fill="#5a8a3a" opacity=".7"/><path d="M12,8 L20,-5 L28,8" fill="#5a8a3a" opacity=".5"/></g>
+        <!-- Figure walking path -->
+        <path d="M50,80 Q120,70 190,50 Q240,38 280,25" fill="none" stroke="#C8974A" stroke-width="1.5" stroke-dasharray="5,4" opacity=".6"/>
+        <!-- Figure -->
+        <g transform="translate(80,68)"><circle cx="0" cy="-8" r="7" fill="#d4a574"/><rect x="-5" y="-1" width="10" height="18" rx="3" fill="#003D8C"/></g>
+        <!-- Right: Air China plane -->
+        <g transform="translate(250,25)"><path d="M-5,15 L30,15 L34,11 L34,19 L30,15" fill="#003D8C"/><path d="M5,6 L10,-8 L16,6" fill="none" stroke="#003D8C" stroke-width="2"/><path d="M12,-10 L14,-16 L16,-10" fill="#C41E2A"/><ellipse cx="12" cy="15" rx="10" ry="3.5" fill="white" opacity=".3"/></g>
+        <!-- Uniformed figure at airport -->
+        <g transform="translate(230,28)"><circle cx="0" cy="-6" r="5" fill="#d4a574"/><rect x="-3" y="-1" width="6" height="14" rx="2" fill="white"/><line x1="-3" y1="4" x2="3" y2="4" stroke="#003D8C" stroke-width="1"/></g>
+        <!-- Stars between -->
+        <text x="155" y="45" font-size="10" fill="#C8974A">✦</text>
+        <text x="185" y="35" font-size="8" fill="#C8974A">✦</text>
+      </svg>
+
       <p class="slide-body">
-        王丽，昭平县一个九口之家的女儿，2018 年大学毕业后通过中航集团就业帮扶项目入职国航地面服务部。从对民航业一无所知，到成长为优秀员工——她的改变，是 <strong>79 名</strong>通过专项招聘进入国航的脱贫家庭子女的缩影。
+        王丽，昭平县一个九口之家的女儿，2018 年通过中航集团就业帮扶入职国航地服。从对民航一无所知到优秀员工——她是 <strong>79 名</strong>通过专项招聘进入国航的脱贫家庭子女的缩影。
       </p>
-      <p class="slide-body" style="margin-top:10px;">
-        国航成立「初心班组」，为每位帮扶员工配备辅导员，建立"每天关心、每周谈心、每月交心"的关怀机制。中航集团先后 <strong>12 次</strong>奔赴帮扶地区专项招聘——来自草原和茶园的年轻人，穿上了国航制服，走进了万米客舱。
+      <p class="slide-body" style="margin-top:8px;">
+        国航成立「初心班组」配备专门辅导员，先后 <strong>12 次</strong>奔赴帮扶地区专项招聘——来自草原和茶园的年轻人，穿上国航制服，走进万米客舱。
       </p>
       <p class="golden-line">传递吉祥，引领群伦，超越自我<br>——这是国航的凤凰精神<br>也是帮扶路上不变的承诺</p>
     </div>
@@ -834,39 +507,73 @@
     <div class="slide slide-results" data-index="7">
       <span class="section-tag">成 果</span>
       <h2 class="slide-title">十二年<br>一份写在蓝天下的答卷</h2>
+
+      <svg class="results-illo" viewBox="0 0 334 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Trophy & medals -->
+        <g transform="translate(25,10)">
+          <rect x="0" y="30" width="18" height="20" rx="2" fill="#C8974A"/>
+          <circle cx="9" cy="15" r="14" fill="#ffd700" stroke="#C8974A" stroke-width="1"/>
+          <text x="9" y="19" text-anchor="middle" font-size="12">🏆</text>
+          <rect x="6" y="50" width="6" height="8" fill="#C8974A"/>
+        </g>
+        <!-- Certificate -->
+        <g transform="translate(60,15)">
+          <rect x="0" y="0" width="80" height="55" rx="3" fill="white" stroke="#C8974A" stroke-width=".8"/>
+          <rect x="4" y="4" width="72" height="47" rx="1" fill="none" stroke="#C8974A" stroke-width=".3"/>
+          <line x1="15" y1="22" x2="65" y2="22" stroke="#C8974A" stroke-width=".4"/>
+          <line x1="15" y1="30" x2="65" y2="30" stroke="#C8974A" stroke-width=".3"/>
+          <line x1="15" y1="38" x2="55" y2="38" stroke="#C8974A" stroke-width=".3"/>
+          <text x="40" y="16" text-anchor="middle" font-size="8" fill="#C8974A" font-weight="700">全球减贫最佳案例</text>
+        </g>
+        <!-- Data bar chart -->
+        <g transform="translate(180,12)">
+          <rect x="0" y="40" width="22" height="30" rx="2" fill="#C41E2A" opacity=".8"/><text x="11" y="82" text-anchor="middle" font-size="7" fill="#666">2.71亿</text>
+          <rect x="28" y="35" width="22" height="35" rx="2" fill="#003D8C" opacity=".8"/><text x="39" y="82" text-anchor="middle" font-size="7" fill="#666">3.74亿</text>
+          <rect x="56" y="28" width="22" height="42" rx="2" fill="#C8974A" opacity=".8"/><text x="67" y="82" text-anchor="middle" font-size="7" fill="#666">4.1亿+</text>
+          <rect x="84" y="45" width="22" height="25" rx="2" fill="#E8732A" opacity=".8"/><text x="95" y="82" text-anchor="middle" font-size="7" fill="#666">1.7万+</text>
+          <text x="53" y="16" text-anchor="middle" font-size="9" fill="#666">帮扶资金与采购（元）</text>
+        </g>
+      </svg>
+
       <div class="results-grid">
-        <div class="result-item">
-          <div class="r-num" data-target="2.71">0</div>
-          <div class="r-label">无偿帮扶资金（亿元）</div>
-        </div>
-        <div class="result-item">
-          <div class="r-num" data-target="3.74">0</div>
-          <div class="r-label">有偿帮扶资金（亿元）</div>
-        </div>
-        <div class="result-item">
-          <div class="r-num" data-target="4.1">0</div>
-          <div class="r-label">采购帮销农特产品（亿元+）</div>
-        </div>
-        <div class="result-item">
-          <div class="r-num" data-target="1.7">0</div>
-          <div class="r-label">培训干部技术人员（万+）</div>
-        </div>
+        <div class="result-item"><div class="r-num" data-target="2.71">0</div><div class="r-label">无偿帮扶资金（亿元）</div></div>
+        <div class="result-item"><div class="r-num" data-target="3.74">0</div><div class="r-label">有偿帮扶资金（亿元）</div></div>
+        <div class="result-item"><div class="r-num" data-target="4.1">0</div><div class="r-label">采购帮销农特产品（亿元+）</div></div>
+        <div class="result-item"><div class="r-num" data-target="1.7">0</div><div class="r-label">培训干部技术人员（万+）</div></div>
       </div>
       <div class="honor-list">
-        <div class="honor-item"><span class="trophy">🏆</span> 连续 <strong>8 年</strong>中央单位定点帮扶成效考核最高等次「好」</div>
-        <div class="honor-item"><span class="trophy">🏆</span>「中航蓝天课堂」获评第六届<strong>全球减贫最佳案例</strong></div>
-        <div class="honor-item"><span class="trophy">🏆</span>「中国之翼助力一片叶子兴业惠民」获评央企助力乡村振兴优秀案例</div>
-        <div class="honor-item"><span class="trophy">🏆</span> 将军峰集团荣获<strong>全国脱贫攻坚先进集体</strong></div>
+        <div class="honor-item">🏆 连续 <strong>8 年</strong>中央单位定点帮扶成效考核最高等次「好」</div>
+        <div class="honor-item">🏆「中航蓝天课堂」获评第六届<strong>全球减贫最佳案例</strong></div>
+        <div class="honor-item">🏆「中国之翼助力一片叶子」获评央企助力乡村振兴优秀案例</div>
+        <div class="honor-item">🏆 将军峰集团荣获<strong>全国脱贫攻坚先进集体</strong></div>
       </div>
-      <p class="slide-body center" style="margin-top:14px; font-size:11px; color:#999;">
-        国航品牌价值 <strong>2,351.62 亿元</strong> · 位列中国民航首位（世界品牌实验室）
+      <p class="slide-body center" style="margin-top:12px;font-size:11px;color:#999;">
+        国航品牌价值 <strong>2,351.62 亿元</strong> · 中国民航首位（世界品牌实验室）
       </p>
     </div>
 
     <!-- ═══════════ 9. ENDING ═══════════ -->
     <div class="slide slide-end" data-index="8">
-      <div class="end-phoenix"></div>
-      <div class="end-flight"></div>
+      <svg class="end-svg-layer" viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="endSky" cx="50%" cy="12%" r="55%"><stop offset="0%" stop-color="#fff" stop-opacity=".08"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="endPhoenix" cx="50%" cy="25%" r="45%"><stop offset="0%" stop-color="#C41E2A" stop-opacity=".2"/><stop offset="40%" stop-color="#C8974A" stop-opacity=".1"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <linearGradient id="horizonGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="#fff" stop-opacity=".06"/></linearGradient>
+        </defs>
+        <rect width="390" height="844" fill="url(#endSky)"/>
+        <!-- Phoenix glow -->
+        <ellipse cx="195" cy="160" rx="140" ry="130" fill="url(#endPhoenix)"/>
+        <!-- Stars -->
+        <g fill="white">
+          <circle cx="50" cy="100" r="1" opacity=".7"/><circle cx="300" cy="80" r="1.2" opacity=".6"/><circle cx="120" cy="180" r=".8" opacity=".5"/>
+          <circle cx="330" cy="200" r="1" opacity=".5"/><circle cx="70" cy="300" r=".7" opacity=".4"/><circle cx="280" cy="350" r=".9" opacity=".4"/>
+        </g>
+        <!-- Flight path extending to horizon -->
+        <path d="M30,250 Q120,230 200,240 Q280,250 380,235" fill="none" stroke="#C8974A" stroke-width="1" opacity=".5"/>
+        <g transform="translate(320,230)"><path d="M0,-8 L10,0 L0,8 L3,0Z" fill="#C8974A" opacity=".7"><animateTransform attributeName="transform" type="translate" values="0,0;-20,3;0,0" dur="4s" repeatCount="indefinite"/></path></g>
+        <!-- Horizon glow -->
+        <ellipse cx="195" cy="500" rx="200" ry="100" fill="url(#horizonGrad)"/>
+      </svg>
       <h2 class="end-title">航迹未止<br>热爱不停</h2>
       <p class="end-sub">从脱贫攻坚到乡村全面振兴<br>我们一直在路上</p>
       <p class="end-body">
@@ -874,11 +581,8 @@
         链接草原与茶园的每一份期待<br>
         让每一次起飞，都承载更多人的梦想
       </p>
-      <div class="end-brand-positioning">
-        🦅 专业信赖 · 国际品质 · 中国风范
-      </div>
+      <div class="end-brand">🦅 专业信赖 · 国际品质 · 中国风范</div>
       <div class="end-logo">
-        <div class="phoenix-logo">🔴🪽</div>
         <div class="brand">中国航空集团有限公司</div>
         <div class="url">www.airchinagroup.com</div>
       </div>
@@ -909,7 +613,6 @@
       }
     });
   }, { threshold: 0.5 });
-
   allSlides.forEach(s => observer.observe(s));
 
   function animateNumber(el) {
@@ -922,13 +625,9 @@
       const progress = Math.min(elapsed / duration, 1);
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = target * eased;
-      if (target >= 1000) {
-        el.textContent = Math.floor(current).toLocaleString('zh-CN');
-      } else if (isFloat) {
-        el.textContent = current.toFixed(2);
-      } else {
-        el.textContent = Math.floor(current);
-      }
+      if (target >= 1000) el.textContent = Math.floor(current).toLocaleString('zh-CN');
+      else if (isFloat) el.textContent = current.toFixed(2);
+      else el.textContent = Math.floor(current);
       if (progress < 1) requestAnimationFrame(update);
       else {
         if (target >= 1000) el.textContent = Math.floor(target).toLocaleString('zh-CN');
@@ -945,19 +644,13 @@
       const containerRect = slides.getBoundingClientRect();
       if (rect.top >= containerRect.top - 100 && rect.top <= containerRect.bottom + 100) {
         const nums = s.querySelectorAll('.num[data-target]');
-        nums.forEach(n => {
-          if (n.dataset.animated) return;
-          n.dataset.animated = '1';
-          animateNumber(n);
-        });
+        nums.forEach(n => { if (!n.dataset.animated) { n.dataset.animated = '1'; animateNumber(n); } });
       }
     });
   }, 300);
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      allSlides[i].scrollIntoView({ behavior: 'smooth' });
-    });
+    dot.addEventListener('click', () => { allSlides[i].scrollIntoView({ behavior: 'smooth' }); });
   });
 })();
 </script>
